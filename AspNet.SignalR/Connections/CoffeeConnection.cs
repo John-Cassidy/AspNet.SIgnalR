@@ -18,6 +18,9 @@ namespace AspNet.SignalR.Connections
 
 		protected override bool AuthorizeRequest(IRequest request)
 		{
+			//var name = request.User.Identity.Name;
+			//var isInRole = request.User.IsInRole("role1");
+
 			return base.AuthorizeRequest(request);
 		}
 	}

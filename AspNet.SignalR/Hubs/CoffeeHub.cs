@@ -6,13 +6,18 @@ using Microsoft.AspNet.SignalR;
 
 namespace AspNet.SignalR.Hubs
 {
+	//[Authorize]
 	public class CoffeeHub : Hub<ICoffeeClient>
 	{
 		private static readonly OrderChecker _orderChecker =
 			new OrderChecker(new Random());
 
+		//[Authorize(Roles = "admin")]
 		public async Task GetUpdateForOrder(Order order)
 		{
+			//var name = Context.User.Identity.Name;
+			//var isInRole = Context.User.IsInRole("role1");
+
 			await Clients.Others.NewOrder(order);
 			UpdateInfo result;
 			do

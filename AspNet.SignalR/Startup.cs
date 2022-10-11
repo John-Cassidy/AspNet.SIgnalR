@@ -12,6 +12,8 @@ namespace AspNet.SignalR
 		{
 			app.MapSignalR();
 			app.MapSignalR<CoffeeConnection>("/coffee");
+
+			//GlobalHost.HubPipeline.RequireAuthentication();
 		}
 	}
 }
